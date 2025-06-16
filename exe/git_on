@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/git_on'
+
+status = GitOn.status
+status_text = "Git is #{status[:git]}"
+if status[:git] == :active
+  if status[:branch]
+    status_text += " on branch #{status[:branch]}"
+  else
+    status_text += " on unknown branch"
+  end
+end
+puts status_text
