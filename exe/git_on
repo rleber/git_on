@@ -2,7 +2,7 @@
 
 require_relative '../lib/git_on'
 
-status = GitOn.status
+status = GitOn.status(`pwd`.chomp)
 status_text = "Git is #{status[:git]}"
 if status[:git] == :active
   if status[:branch]
